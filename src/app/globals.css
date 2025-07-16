@@ -5,6 +5,28 @@
   src: url('/fonts/Urbanist-Regular.ttf');
 }
 
+@font-face {
+  font-family: Urbanist-bold;
+  src: url('/fonts/Urbanist-Bold.ttf');
+}
+
+
 *{
   font-family: Urbanist;
 }
+
+/* @layer utilities {
+  .clip-circle {
+    clip-path: circle(0% at center);
+  }
+
+  @keyframes reveal {
+    to {
+      clip-path: circle(100% at center);
+    }
+  }
+
+  .animate-reveal {
+    animation: reveal 3s ease-in-out forwards;
+  }
+} */
