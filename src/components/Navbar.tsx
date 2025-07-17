@@ -40,7 +40,6 @@ export default function Navbar() {
                     <ul className="lg:flex hidden list-none items-center gap-10">
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Home</li>
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Courses</li>
-                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Projects</li>
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Tutorial</li>
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">About us</li>
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Blog</li>
