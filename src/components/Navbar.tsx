@@ -26,7 +26,7 @@ export default function Navbar() {
                     <li className="flex text-white items-center gap-4">Follow Us: <span className="flex items-center gap-3 text-white/70"><FaFacebook className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaYoutube className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaXTwitter className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaInstagram className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaLinkedin className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaTwitter className="cursor-pointer hover:text-[#f86f03] duration-300" /></span></li>
                 </ul>
             </div>
-            <div className="bg-white shadow-md">
+            <div className="bg-white">
                 <div className="p-3 sm:py-2 sm:px-5 max-w-6xl mx-auto flex items-center justify-between">
                     <div className="flex items-center">
                         <Image src="/sntlogo.jpg" alt="SNT Logo" height={60} width={64} className="w-10 h-14 object-cover sm:w-16 rounded-md" />
