@@ -6,13 +6,23 @@ import Image from 'next/image'
 import React from 'react'
 import { BsGraphUpArrow } from 'react-icons/bs'
 import { CgSandClock } from 'react-icons/cg'
-import { FaArrowRight, FaAward, FaBriefcase, FaCalendar, FaCalendarAlt, FaClock, FaCode, FaPhoneAlt, FaRupeeSign } from 'react-icons/fa'
+import { FaArrowRight, FaAward, FaBriefcase, FaCalendar, FaCalendarAlt, FaChalkboardTeacher, FaClock, FaCode, FaHandshake, FaLaptopCode, FaPhoneAlt, FaRupeeSign } from 'react-icons/fa'
 import { FaArrowRightLong, FaLocationDot } from 'react-icons/fa6'
 import { GiStairsGoal } from 'react-icons/gi'
+import { LiaStarSolid } from 'react-icons/lia'
+
 
 const aboutInfoArray = [{ title: '12+', desc: 'Year Est.' }, { title: '20k+', desc: 'Students' }, { title: '50+', desc: 'Courses' }, { title: '50+', desc: 'Companies' }]
 const courseArray = [{ image: "/javafullstackdeveloper (1).jpg", title: "Java Full Stack Development", duration: "8 Months", income: "Minimum 6-8 LPA", opportunites: "1.08 lac+ jobs/internship Opportunities" }, { image: "/frontenddeveloper.jpg", title: "Frontend Web Development", duration: "4 Months", income: "Average 3-5 LPA", opportunites: "50k+ jobs/internship Opportunities" }, { image: "/MERNSTACKDEVELOPER.jpg", title: "MERN Stack Development", duration: "6 Months", income: "Average 4-6 LPA", opportunites: "70k+ jobs/internship Opportunities" }];
 const upcomingBatchArray = [{ title: 'Full Stack Java Development', date: '19 July 2025', duration: '11:00 AM to 02:00 PM', days: 'Weekend', type: 'Online/Offline' }, { title: 'MERN Stack Development', date: '18 August 2025', duration: '07:00 PM to 08:30 PM', days: 'Weekday', type: 'Online/Offline' }, { title: 'Frontend Web Development', date: '25 August 2025', duration: '10:00 AM to 12:00 PM', days: 'Weekday', type: 'Online/Offline' }]
+const whyChooseUsArray = [{ symbol: <FaBriefcase />, title: 'Job Assured Courses', desc: 'Our programs are crafted to be job-focused and ensure relevant skills for your career' }, {
+    symbol: <FaChalkboardTeacher />
+    , title: 'Expert Instructors', desc: 'Gain insights from experienced professionals who offer practical, real-world knowledge'
+}, { symbol: <FaHandshake />, title: 'Career Support', desc: 'Get expert help with resume crafting, interview skills, and job placement services' }, { symbol: <FaLaptopCode />, title: 'Hands-On Learning', desc: 'Participate in live projects and assignments that reflect actual industry challenges' }]
+
+const studentData = [{ text: "SNT gave me the confidence to switch careers. The instructors are patient, knowledgeable, and genuinely care about your progress. I never thought I&apos;d be building full-stack apps, but here I am!", name: 'Arjun Mehta', userImage: '/maletestimonail1.jpg' }]
+
+// const studentData = [{ text: "SNT gave me the confidence to switch careers. The instructors are patient, knowledgeable, and genuinely care about your progress. I never thought I&apos;d be building full-stack apps, but here I am!", name: 'Arjun Mehta', userImage: '/maletestimonail1.jpg' }, { text: "What really sets SNT apart is the incredible support from the teaching team. Anytime I got stuck, there was always someone ready to help—whether it was during class, late at night on Slack, or in weekend doubt-clearing sessions. I never felt alone in the learning process.", name: 'Nitin Sharma', userImage: '/maletestimonail2.jpg' }, { text: "Before joining SNT, I struggled to grasp even the basics of programming. Their hands-on teaching style and real-world projects completely changed the game for me. I landed my first developer job just two months after completing the course. Truly life-changing!", name: 'Riya Sharma', userImage: '/girltestimonial.jpg' }]
 export default function Main() {
     return (
         <>
@@ -42,7 +52,7 @@ export default function Main() {
                 </div>
             </section>
             <h3 style={{ fontFamily: 'Urbanist-bold' }} className='text-[#7079df] w-fit mx-auto mt-10 lg:mt-16 md:text-xl'>WHO WE ARE</h3>
-            <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-5xl mt-3 w-fit mx-auto'>About <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>SNT</span></h1>
+            <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-4xl mt-3 w-fit mx-auto'>About <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>SNT</span></h1>
             <section className='py-10 mt-5 flex flex-col lg:flex-row items-center lg:justify-center lg:gap-10 xl:gap-15 gap-5'>
                 <div>
                     <Image src="/about-image-09.jpg" alt='About Image' height={340} width={290} className='mx-auto rounded-t-full lg:h-[595px] lg:w-[363px] xl:h-[555px] xl:w-[463px] object-cover' />
@@ -79,17 +89,17 @@ export default function Main() {
                 </div>
             </section>
             <h3 style={{ fontFamily: 'Urbanist-bold' }} className='text-[#7079df] w-fit mx-auto mt-10 lg:mt-16 md:text-xl'>UNIQUE COURSES</h3>
-            <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-5xl mt-3 w-fit mx-auto'>Our Featured <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Courses</span></h1>
+            <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-4xl mt-3 w-fit mx-auto'>Our Featured <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Courses</span></h1>
             <section className="mt-14">
-                <div className='mx-auto flex flex-wrap gap-6 justify-center w-full px-4'>
+                <div className='mx-auto flex flex-wrap gap-10 justify-center w-full px-4'>
                     {
                         courseArray.map((course, index) => (
-                            <div key={index} className="bg-white shadow-md hover:shadow-xl hover:shadow-black/40 duration-300 rounded-lg pb-4 w-[90vw] sm:w-96 max-w-96 flex flex-col">
+                            <div key={index} className="bg-white shadow-md hover:shadow-xl hover:shadow-black/40 duration-300 rounded-lg pb-4 w-[90vw] sm:w-90 max-w-90 flex flex-col">
                                 <Image
                                     src={course.image}
                                     alt={course.title}
-                                    height={90}
-                                    width={90}
+                                    height={270}
+                                    width={370}
                                     className="w-full object-cover rounded-t-2xl"
                                 />
                                 <h3 className="mt-5 pl-3 font-semibold text-lg">{course.title}</h3>
@@ -120,11 +130,11 @@ export default function Main() {
                     }
                 </div>
             </section>
-            <section className='bg-slate-800 mt-10 lg:mt-16 max-w-[1200px] md:pr-10 md:pl-5 mb-20 md:flex md:items-center md:justify-between lg:justify-center lg:gap-40 lg:px-0 text-white py-10 px-4 w-[90vw] mx-auto rounded-2xl'>
-                <h1 className='text-3xl md:text-4xl lg:mr-4 lg:text-5xl text-center mb-10 font-semibold'>Upcoming Batches</h1>
+            <section className='bg-zinc-900 bg-[url("/bg-texture.webp")] bg-cover bg-no-repeat mt-10 lg:mt-16 max-w-[1200px] md:pr-10 md:pl-5 mb-20 md:flex md:items-center md:justify-between lg:justify-center lg:gap-40 lg:px-0 text-white py-10 px-4 w-[90vw] mx-auto rounded-2xl'>
+                <h1 className='text-3xl md:text-4xl lg:mr-4 text-center mb-10 font-semibold'>Upcoming Batches</h1>
                 <div>
                     {upcomingBatchArray.map((batch, index) => (
-                        <div className='flex flex-col gap-3'>
+                        <div key={index} className='flex flex-col gap-3'>
                             <p className='flex items-center gap-2'><FaCalendarAlt className='text-[#525fe1]' />{batch.date}</p>
                             <h3 className='text-xl font-semibold cursor-pointer hover:text-[#525fe1] duration-300'>{batch.title}</h3>
                             <div className='flex text-sm items-center flex-wrap gap-4'>
@@ -135,6 +145,47 @@ export default function Main() {
                             <div className={`w-[90%] h-[0.5px] bg-white/70 my-7 ${index === upcomingBatchArray.length - 1 ? 'hidden' : ''}`}></div>
                         </div>
                     ))}
+                </div>
+            </section>
+            <section className='bg-[#f3faff] px-5 py-15 mt-10 lg:mt-16'>
+                <h3 style={{ fontFamily: 'Urbanist-bold' }} className='text-[#7079df] w-fit mx-auto md:text-xl'>OUR SERVICES</h3>
+                <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-4xl mt-3 w-fit mx-auto'>Why Choose <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>us?</span></h1>
+                <div className='flex flex-col sm:flex-row items-center sm:flex-wrap sm:justify-center  gap-8 mt-10'>
+                    {
+                        whyChooseUsArray.map((item, index) => (
+                            <div key={index} className='flex group flex-col items-center shadow-md hover:shadow-lg gap-5 w-[80vw] sm:max-w-64 py-6 px-3.5 mx-auto sm:mx-0 rounded-lg bg-white hover:bg-[#525fe1] duration-300'>
+                                <span className='text-[#525fe1] group-hover:text-white text-5xl'>{item.symbol}</span>
+                                <h3 className='text-center text-lg group-hover:text-white font-semibold text-zinc-800'>{item.title}</h3>
+                                <p className='text-center group-hover:text-white text-zinc-700'>{item.desc}</p>
+                            </div>
+                        ))}
+                </div>
+            </section>
+            <section className='bg-gradient-to-r py-10 from-[#fff3e7] via-[#f6f1f7] to-[#f6ebe7]'>
+                <h3 style={{ fontFamily: 'Urbanist-bold' }} className='text-[#7079df] w-fit mx-auto md:text-xl'>SHAPING SUCCESS</h3>
+                <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-4xl mt-3 w-fit mx-auto'>Student <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Testimonials</span></h1>
+                <div className='flex flex-col items-center lg:px-10 lg:flex-row-reverse lg:items-start lg:justify-center lg:gap-10 xl:gap-16 lg:mt-14'>
+                    <div className='px-4 lg:px-0 my-8 lg:my-4'>
+                        <p className='text-zinc-600 font-semibold'>SNT empowers future developers through real-world coding, expert mentorship, and career-focused training.</p>
+                        <ul className='list-none my-6 text-zinc-600 flex w-fit flex-col sm:grid sm:grid-cols-2 sm:gap-x-28 sm:gap-y-5 lg:gap-x-8 gap-5 font-semibold'>
+                            <li className="relative pl-10 before:content-['✔'] before:absolute before:left-0 before:top-1 before:bg-[#525fe1] before:text-white before:rounded-full before:w-5 before:h-5 before:flex before:items-center before:justify-center before:text-xs">Industry-relevant curriculum</li>
+                            <li className="relative pl-10 before:content-['✔'] before:absolute before:left-0 before:top-1 before:bg-[#525fe1] before:text-white before:rounded-full before:w-5 before:h-5 before:flex before:items-center before:justify-center before:text-xs">1-on-1 mentor support</li>
+                            <li className="relative pl-10 before:content-['✔'] before:absolute before:left-0 before:top-1 before:bg-[#525fe1] before:text-white before:rounded-full before:w-5 before:h-5 before:flex before:items-center before:justify-center before:text-xs">Placement assistance & mock interviews</li>
+                            <li className="relative pl-10 before:content-['✔'] before:absolute before:left-0 before:top-1 before:bg-[#525fe1] before:text-white before:rounded-full before:w-5 before:h-5 before:flex before:items-center before:justify-center before:text-xs">Flexible online and offline batches</li>
+                        </ul>
+                    </div>
+                    {studentData.map((testimonial, index) => (
+                        <div key={index} className='flex flex-col items-start gap-5 bg-white shadow-lg p-8 lg:max-w-[574px] rounded-md w-[90vw]'>
+                            <div className='flex items-center gap-1 text-yellow-400 text-lg'>
+                                {[...Array(5)].map((_, index) => (
+                                    <LiaStarSolid key={index} />))}
+                            </div>
+                            <p className='text-gray-700 urbanist_bold'>"{testimonial.text}"</p>
+                            <div className='flex items-center gap-4'>
+                                <Image src={testimonial.userImage} alt='testimonail image' width={275} height={183} className='object-cover w-10 h-10 rounded-full' />
+                                <p className='urbanist_bold'>{testimonial.name}</p>
+                            </div>
+                        </div>))}
                 </div>
             </section>
         </>
