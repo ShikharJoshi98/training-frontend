@@ -1,25 +1,30 @@
+'use client'
 import Image from "next/image";
+import { useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhoneAlt, FaTwitter, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { LuMessageSquare } from "react-icons/lu";
 import { MdEmail } from "react-icons/md";
 import { RiMenuFill } from "react-icons/ri";
+import CourseModal from "./CourseModal";
+import Link from "next/link";
 
 export default function Navbar() {
+    const [isCourseModal, setCourseModal] = useState(false);
     return (
         <>
-            <div className="bg-[#f86f03] p-1">
+            {/* <div className="bg-[#f86f03] p-1">
                 <p className="text-white px-4 leading-relaxed text-center text-wrap w-auto sm:w-[514px] md:w-[749px] lg:w-fit mx-auto">Job Oriented Courses for Everyone! Open to All Graduates, Diplomas, Long Years Gap, Passouts & Non-IT Fields. <span className="text-[#231F40] font-bold text-lg">Enquire Now 📩</span></p>
-            </div>
+            </div> */}
             <div className="bg-[#231F40]">
                 <ul className="list-none py-2 px-5 max-w-6xl mx-auto hidden md:flex items-center justify-between">
                     <li className="flex text-white/70 items-center gap-4">
                         <div className="flex items-center gap-2">
-                            <MdEmail className="w-4 text-[#f86f03]" />
+                            <span className="p-1.5 rounded-full bg-[#525fe1]/30"><MdEmail className="w-3 h-3 text-white" /></span>
                             <p className="cursor-pointer">Mnath.snt@gmail.com</p>
                         </div>
                         <div className="flex items-center gap-2">
-                            <FaPhoneAlt className="w-4 text-[#f86f03]" />
+                            <span className="p-1.5 rounded-full bg-[#525fe1]/30"><FaPhoneAlt className="w-3 h-3 text-white" /></span>
                             <p className="cursor-pointer">+91 8595161711</p>
                         </div>
                     </li>
@@ -38,14 +43,15 @@ export default function Navbar() {
                         <li className="p-2 rounded-md shadow-md"><RiMenuFill className="size-4 sm:size-6" /></li>
                     </ul>
                     <ul className="lg:flex hidden list-none items-center gap-10">
-                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Home</li>
-                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Courses</li>
-                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Tutorial</li>
+                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold"><Link href="/Main">Home</Link></li>
+                        <li onClick={() => setCourseModal(true)} className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Courses</li>
+                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold"><Link href="/Tutorial">Tutorial</Link></li>
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">About us</li>
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Blog</li>
                     </ul>
                     <span className="p-2 hidden md:block lg:hidden rounded-md shadow-md"><RiMenuFill className="size-4 sm:size-6" /></span>
                 </div>
+                {isCourseModal && <CourseModal onClose={() => setCourseModal(false)} />}
             </div>
         </>
     )

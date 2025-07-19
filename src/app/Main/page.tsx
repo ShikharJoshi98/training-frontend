@@ -1,18 +1,15 @@
 'use client'
-import Button from '@/components/Button'
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
-import SmallButton from '@/components/SmallButton'
-import Image from 'next/image'
-import React, { useRef, useState } from 'react'
-import { BsGraphUpArrow, BsStars } from 'react-icons/bs'
-import { CgSandClock } from 'react-icons/cg'
-import { FaArrowRight, FaAward, FaBriefcase, FaCalendar, FaCalendarAlt, FaChalkboardTeacher, FaClock, FaCode, FaHandshake, FaLaptopCode, FaMinus, FaPhoneAlt, FaPlus, FaRupeeSign, FaWhatsapp } from 'react-icons/fa'
-import { FaArrowRightLong, FaLocationDot } from 'react-icons/fa6'
-import { GiStairsGoal } from 'react-icons/gi'
-import { IoPricetag } from 'react-icons/io5'
-import { LiaStarSolid } from 'react-icons/lia'
-
+import Button from '@/components/Button';
+import SmallButton from '@/components/SmallButton';
+import Image from 'next/image';
+import React, { useRef, useState } from 'react';
+import { BsGraphUpArrow } from 'react-icons/bs';
+import { CgSandClock } from 'react-icons/cg';
+import { FaArrowRight, FaAward, FaBriefcase, FaCalendar, FaCalendarAlt, FaChalkboardTeacher, FaClock, FaCode, FaHandshake, FaLaptopCode, FaMinus, FaPhoneAlt, FaPlus, FaRupeeSign } from 'react-icons/fa';
+import { FaArrowRightLong, FaLocationDot } from 'react-icons/fa6';
+import { GiStairsGoal } from 'react-icons/gi';
+import { LiaStarSolid } from 'react-icons/lia';
+import SelfPacedLearning from '../../components/SelfPacedLearning';
 
 const aboutInfoArray = [{ title: '12+', desc: 'Year Est.' }, { title: '20k+', desc: 'Students' }, { title: '50+', desc: 'Courses' }, { title: '50+', desc: 'Companies' }]
 const courseArray = [{ image: "/javafullstackdeveloper (1).jpg", title: "Java Full Stack Development", duration: "8 Months", income: "Minimum 6-8 LPA", opportunites: "1.08 lac+ jobs/internship Opportunities" }, { image: "/frontenddeveloper.jpg", title: "Frontend Web Development", duration: "4 Months", income: "Average 3-5 LPA", opportunites: "50k+ jobs/internship Opportunities" }, { image: "/MERNSTACKDEVELOPER.jpg", title: "MERN Stack Development", duration: "6 Months", income: "Average 4-6 LPA", opportunites: "70k+ jobs/internship Opportunities" }];
@@ -42,9 +39,9 @@ export default function Main() {
     const toggle = (index: any) => {
         setOpenIndex(openIndex === index ? null : index);
     };
+
     return (
         <>
-            <Navbar />
             <section className='px-4 py-8 relative sm:py-12 bg-gradient-to-b rounded-t-xl from-[#bbd2ff] via-[#ccd4df] to-[#e5e5e5]'>
                 <div className='flex flex-col items-center gap-4 sm:gap-6'>
                     <p className='flex items-center font-semibold gap-2 py-1 px-4 bg-transparent  border rounded-4xl w-fit text-[10px] whitespace-nowrap sm:text-sm'><FaAward className='text-[#525fe1]' />STEP INTO THE IT WORLD WITH SNT</p>
@@ -249,18 +246,7 @@ export default function Main() {
                     ))}
                 </div>
             </section>
-            <section className="text-white pb-16 px-6">
-                <div className="max-w-6xl mx-auto relative flex flex-col lg:flex-row rounded-xl overflow-hidden bg-gradient-to-tl from-black via-slate-900 to-gray-800 via shadow-lg">
-                    <div className='absolute top-5 left-10'><BsStars size={20} /></div>
-                    <div className="flex-1 p-10 space-y-6">
-                        <h2 className="text-3xl sm:text-4xl text-white  font-bold leading-snug">SNT Self Paced Learning</h2>
-                        <p className="text-gray-300">Learn at your pace, anytime and anywhere, with our self-paced courses</p>
-                        <Button text='Get Started Now' />
-                    </div>
-                    <div className='sm:flex absolute hidden bottom-10 right-10 items-center gap-4 mt-6 sm:mt-0 font-semibold'><span className='p-4 rounded-full bg-[#525fe1]/40'><FaPhoneAlt className='text-[#525fe1]' /></span><span className='text-lg hover:text-[#525fe1] duration-200 cursor-pointer'>+91 8595161711</span></div>
-                </div>
-            </section >
-            <Footer />
+            <SelfPacedLearning />
         </>
     )
 }

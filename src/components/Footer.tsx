@@ -45,7 +45,7 @@ export default function Footer() {
                     <h4 className="text-xl font-semibold mb-4">Contact Info</h4>
                     <ul className="space-y-4 text-gray-300 text-sm">
                         <li className="flex items-start gap-2">
-                            <FiMapPin className="mt-1" />
+                            <FiMapPin size={32} />
                             D-211 1st Floor,108 Laxman Plaza, Near Bank of Baroda, Munirka, New Delhi-110067
                         </li>
                         <li className="flex items-center gap-2">
