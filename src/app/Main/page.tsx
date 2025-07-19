@@ -1,14 +1,16 @@
 'use client'
 import Button from '@/components/Button'
+import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import SmallButton from '@/components/SmallButton'
 import Image from 'next/image'
-import React from 'react'
-import { BsGraphUpArrow } from 'react-icons/bs'
+import React, { useRef, useState } from 'react'
+import { BsGraphUpArrow, BsStars } from 'react-icons/bs'
 import { CgSandClock } from 'react-icons/cg'
-import { FaArrowRight, FaAward, FaBriefcase, FaCalendar, FaCalendarAlt, FaChalkboardTeacher, FaClock, FaCode, FaHandshake, FaLaptopCode, FaPhoneAlt, FaRupeeSign } from 'react-icons/fa'
+import { FaArrowRight, FaAward, FaBriefcase, FaCalendar, FaCalendarAlt, FaChalkboardTeacher, FaClock, FaCode, FaHandshake, FaLaptopCode, FaMinus, FaPhoneAlt, FaPlus, FaRupeeSign, FaWhatsapp } from 'react-icons/fa'
 import { FaArrowRightLong, FaLocationDot } from 'react-icons/fa6'
 import { GiStairsGoal } from 'react-icons/gi'
+import { IoPricetag } from 'react-icons/io5'
 import { LiaStarSolid } from 'react-icons/lia'
 
 
@@ -21,9 +23,25 @@ const whyChooseUsArray = [{ symbol: <FaBriefcase />, title: 'Job Assured Courses
 }, { symbol: <FaHandshake />, title: 'Career Support', desc: 'Get expert help with resume crafting, interview skills, and job placement services' }, { symbol: <FaLaptopCode />, title: 'Hands-On Learning', desc: 'Participate in live projects and assignments that reflect actual industry challenges' }]
 
 const studentData = [{ text: "SNT gave me the confidence to switch careers. The instructors are patient, knowledgeable, and genuinely care about your progress. I never thought I&apos;d be building full-stack apps, but here I am!", name: 'Arjun Mehta', userImage: '/maletestimonail1.jpg' }]
-
+const blogArray = ['Roadmap To Prepare For Campus Placement', '6 Amazing Java Applications You Should Know About', 'Python Machine Learning Libraries']
 // const studentData = [{ text: "SNT gave me the confidence to switch careers. The instructors are patient, knowledgeable, and genuinely care about your progress. I never thought I&apos;d be building full-stack apps, but here I am!", name: 'Arjun Mehta', userImage: '/maletestimonail1.jpg' }, { text: "What really sets SNT apart is the incredible support from the teaching team. Anytime I got stuck, there was always someone ready to help—whether it was during class, late at night on Slack, or in weekend doubt-clearing sessions. I never felt alone in the learning process.", name: 'Nitin Sharma', userImage: '/maletestimonail2.jpg' }, { text: "Before joining SNT, I struggled to grasp even the basics of programming. Their hands-on teaching style and real-world projects completely changed the game for me. I landed my first developer job just two months after completing the course. Truly life-changing!", name: 'Riya Sharma', userImage: '/girltestimonial.jpg' }]
+const faqData = [
+    { question: "Can I join if I have a gap after graduation?", desc: "Yes, definitely! Many of our students join after a gap. We offer personalized training and guidance to help you restart your career confidently in the IT sector." },
+    { question: "What kind of placement support do you offer?", desc: "We offer 100% placement assistance including resume building, aptitude tests and mock interviews." },
+    { question: "Are your courses beginner-friendly?", desc: "Yes! Our courses are designed for both freshers and non-IT students. We start from basics and guide you step-by-step towards becoming job-ready." },
+    { question: "Is there any EMI/payment plan available?", desc: "We do not offer EMI options at the moment, but we do provide flexible installment plans to help students manage their payments more comfortably." },
+    { question: "How do I get started with a course?", desc: "Simply fill out our inquiry form Click here or call us +91 8595161711. Our team will help you choose the right course and start your learning journey right away." },
+    { question: "What if I miss a class?", desc: "No worries. We offer class recordings and backup sessions so that you never miss out on learning, even if you skip a session." },
+    { question: "Do I need a technical background to join?", desc: "Not at all. Many of our students come from non-technical backgrounds. We start from scratch and build your skills step by step." },
+    { question: "Will I get a certificate after course completion?", desc: "Yes, you’ll receive a recognized course completion certificate from JTC, which can be shared on your resume and LinkedIn." },
+];
 export default function Main() {
+    const [openIndex, setOpenIndex] = useState(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    const toggle = (index: any) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
     return (
         <>
             <Navbar />
@@ -33,7 +51,7 @@ export default function Main() {
                     <h1 style={{ fontFamily: "Urbanist-bold" }} className='text-2xl leading-tight mt-2 text-zinc-800 text-center sm:text-4xl lg:text-[56px]'>Join the  No. 1 Institute with <br /><span style={{ fontFamily: "Urbanist-bold" }} className='text-[#525fe1]'>100% Job Placement Support.</span></h1>
                     <p className='text-center block font-semibold text-gray-700 sm:hidden max-w-[325px] text-xs md:text-lg'>Kickstart your IT career with job-ready training and 100% placement support from SNT.</p>
                     <p className='text-center font-semibold text-gray-700 hidden sm:block sm:max-w-[525px] lg:max-w-[800px] text-[15px] md:text-lg'>Achieve your IT career goals with job-ready training and 100% job assistance. SNT ensures you master essential IT skills to succeed in today&apos;s competitive world.</p>
-                    <button className='py-2 pl-4 font-semibold text-sm sm:text-lg cursor-pointer pr-2 text-white bg-[#525fe1] rounded-full flex items-center gap-2 mt-2'>Get Started Now <span className='bg-white text-black rounded-full p-2'><FaArrowRightLong /></span></button>
+                    <button className='py-2 pl-4 font-semibold text-sm sm:text-lg cursor-pointer pr-2 text-white bg-[#525fe1] hover:bg-[#3c49e0] group duration-300 rounded-full flex items-center gap-2 mt-2'>Get Started Now <span className='bg-white group-hover:text-white group-hover:bg-black duration-300 text-black rounded-full p-2'><FaArrowRightLong /></span></button>
                 </div>
             </section>
             <section className='bg-gradient-to-b px-5 py-10 items-center flex flex-col-reverse lg:flex-row lg:gap-0 lg:justify-center gap-10 from-[#e5e5e5] w-full to-white'>
@@ -90,7 +108,7 @@ export default function Main() {
             </section>
             <h3 style={{ fontFamily: 'Urbanist-bold' }} className='text-[#7079df] w-fit mx-auto mt-10 lg:mt-16 md:text-xl'>UNIQUE COURSES</h3>
             <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-4xl mt-3 w-fit mx-auto'>Our Featured <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Courses</span></h1>
-            <section className="mt-14">
+            <section className="py-15">
                 <div className='mx-auto flex flex-wrap gap-10 justify-center w-full px-4'>
                     {
                         courseArray.map((course, index) => (
@@ -122,7 +140,7 @@ export default function Main() {
                                     <SmallButton text="Read More" />
                                     <p className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 py-3 px-5 text-[#525fe1] flex items-center gap-3 font-semibold rounded-lg">
                                         Enroll Now <FaArrowRight />
-                                        <span className="absolute left-5 bottom-2 h-[2px] w-0 bg-[#525fe1] transition-all duration-300 group-hover:w-[60%]"></span>
+                                        <span className="absolute left-5 bottom-3 h-[2px] w-0 bg-[#525fe1] transition-all duration-300 group-hover:w-[60%]"></span>
                                     </p>
                                 </div>
                             </div>
@@ -130,7 +148,7 @@ export default function Main() {
                     }
                 </div>
             </section>
-            <section className='bg-zinc-900 bg-[url("/bg-texture.webp")] bg-cover bg-no-repeat mt-10 lg:mt-16 max-w-[1200px] md:pr-10 md:pl-5 mb-20 md:flex md:items-center md:justify-between lg:justify-center lg:gap-40 lg:px-0 text-white py-10 px-4 w-[90vw] mx-auto rounded-2xl'>
+            <section className='bg-gradient-to-tl from-black via-slate-900 to-gray-800 bg-cover bg-no-repeat mt-10 lg:mt-16 max-w-[1200px] md:pr-10 md:pl-5 mb-20 md:flex md:items-center md:justify-between lg:justify-center lg:gap-40 lg:px-0 text-white py-10 px-4 w-[90vw] mx-auto rounded-2xl'>
                 <h1 className='text-3xl md:text-4xl lg:mr-4 text-center mb-10 font-semibold'>Upcoming Batches</h1>
                 <div>
                     {upcomingBatchArray.map((batch, index) => (
@@ -161,7 +179,7 @@ export default function Main() {
                         ))}
                 </div>
             </section>
-            <section className='bg-gradient-to-r py-10 from-[#fff3e7] via-[#f6f1f7] to-[#f6ebe7]'>
+            <section className='bg-gradient-to-r py-15 from-[#fff3e7] via-[#f6f1f7] to-[#f6ebe7]'>
                 <h3 style={{ fontFamily: 'Urbanist-bold' }} className='text-[#7079df] w-fit mx-auto md:text-xl'>SHAPING SUCCESS</h3>
                 <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-4xl mt-3 w-fit mx-auto'>Student <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Testimonials</span></h1>
                 <div className='flex flex-col items-center lg:px-10 lg:flex-row-reverse lg:items-start lg:justify-center lg:gap-10 xl:gap-16 lg:mt-14'>
@@ -188,6 +206,61 @@ export default function Main() {
                         </div>))}
                 </div>
             </section>
+            <section className='pt-15'>
+                <h3 className='text-[#7079df] urbanist_bold w-fit mx-auto md:text-xl'>Get General Answers</h3>
+                <h1 className='text-3xl text-center urbanist_bold md:text-4xl mt-3 w-fit mx-auto'>Frequently Asked <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Questions</span></h1>
+                <div className="max-w-6xl mx-auto pt-20 pb-13 px-6 md:flex md:flex-wrap gap-6">
+                    {faqData.map((faq, index) => (
+                        <div key={index} className="w-full md:w-[48%] border-b border-gray-300 cursor-pointer" onClick={() => toggle(index)}>
+                            <div className={`flex justify-between items-center py-4 font-semibold text-black hover:text-[#525fe1] ${openIndex === index ? "text-[#525fe1]" : ""}`}>
+                                <span>{faq.question}</span>
+                                <span className="text-xl text-[#525fe1]">
+                                    {openIndex === index ? <FaMinus /> : <FaPlus />}
+                                </span>
+                            </div>
+                            <div
+                                ref={contentRef}
+                                className="transition-all duration-300 ease-in-out overflow-hidden text-sm text-gray-600"
+                                style={{
+                                    maxHeight: openIndex === index ? `${contentRef.current?.scrollHeight}px` : "0px"
+                                }}
+                            >
+                                <div className="pb-4">{faq.desc}</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section >
+            <section className='py-15'>
+                <h3 className='text-[#7079df] urbanist_bold w-fit mx-auto md:text-xl'>Always Smart to Read Blogs</h3>
+                <h1 className='text-3xl text-center urbanist_bold md:text-4xl mt-3 w-fit mx-auto'>Latest <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Blogs</span></h1>
+                <div className='mt-12 flex flex-col md:flex-row md:justify-center md:items-center md:px-10 gap-6'>
+                    {blogArray.map((blog, index) => (
+                        <div key={index} className='bg-white w-[90vw] p-4 flex flex-col justify-between md:h-48 mx-auto md:mx-0 rounded-lg shadow-md shadow-gray-500'>
+                            <h3 className='urbanist_bold text-xl cursor-pointer hover:text-[#525fe1] duration-300'>{blog}</h3>
+                            <div className='flex items-center mt-5 justify-between'>
+                                <p className='flex items-center gap-2 text-sm'><FaCalendar className='text-[#525fe1]' />01 August 2025</p>
+                                <p className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 text-[#525fe1] flex items-center gap-1 font-semibold rounded-lg">
+                                    Read More <FaArrowRight />
+                                    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#525fe1] transition-all duration-300 group-hover:w-[80%]"></span>
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+            <section className="text-white pb-16 px-6">
+                <div className="max-w-6xl mx-auto relative flex flex-col lg:flex-row rounded-xl overflow-hidden bg-gradient-to-tl from-black via-slate-900 to-gray-800 via shadow-lg">
+                    <div className='absolute top-5 left-10'><BsStars size={20} /></div>
+                    <div className="flex-1 p-10 space-y-6">
+                        <h2 className="text-3xl sm:text-4xl text-white  font-bold leading-snug">SNT Self Paced Learning</h2>
+                        <p className="text-gray-300">Learn at your pace, anytime and anywhere, with our self-paced courses</p>
+                        <Button text='Get Started Now' />
+                    </div>
+                    <div className='sm:flex absolute hidden bottom-10 right-10 items-center gap-4 mt-6 sm:mt-0 font-semibold'><span className='p-4 rounded-full bg-[#525fe1]/40'><FaPhoneAlt className='text-[#525fe1]' /></span><span className='text-lg hover:text-[#525fe1] duration-200 cursor-pointer'>+91 8595161711</span></div>
+                </div>
+            </section >
+            <Footer />
         </>
     )
 }
