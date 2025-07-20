@@ -231,9 +231,9 @@ export default function Main() {
             <section className='py-15'>
                 <h3 className='text-[#7079df] urbanist_bold w-fit mx-auto md:text-xl'>Always Smart to Read Blogs</h3>
                 <h1 className='text-3xl text-center urbanist_bold md:text-4xl mt-3 w-fit mx-auto'>Latest <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Blogs</span></h1>
-                <div className='mt-12 flex flex-col md:flex-row md:justify-center md:items-center md:px-10 gap-6'>
+                <div className='mt-12 flex flex-col max-w-7xl mx-auto md:flex-row md:justify-center md:items-center md:px-10 gap-6'>
                     {blogArray.map((blog, index) => (
-                        <div key={index} className='bg-white w-[90vw] p-4 flex flex-col justify-between md:h-48 mx-auto md:mx-0 rounded-lg shadow-md shadow-gray-500'>
+                        <div key={index} className='bg-white w-[90vw] max-w-91 p-4 flex flex-col justify-between md:h-48 mx-auto md:mx-0 rounded-lg shadow-md shadow-gray-500'>
                             <h3 className='urbanist_bold text-xl cursor-pointer hover:text-[#525fe1] duration-300'>{blog}</h3>
                             <div className='flex items-center mt-5 justify-between'>
                                 <p className='flex items-center gap-2 text-sm'><FaCalendar className='text-[#525fe1]' />01 August 2025</p>

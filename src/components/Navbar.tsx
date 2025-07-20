@@ -31,7 +31,7 @@ export default function Navbar() {
                     <li className="flex text-white items-center gap-4">Follow Us: <span className="flex items-center gap-3 text-white/70"><FaFacebook className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaYoutube className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaXTwitter className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaInstagram className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaLinkedin className="cursor-pointer hover:text-[#f86f03] duration-300" /><FaTwitter className="cursor-pointer hover:text-[#f86f03] duration-300" /></span></li>
                 </ul>
             </div>
-            <div className="bg-white">
+            <div className="bg-white shadow-md shadow-gray-100">
                 <div className="p-3 sm:py-2 sm:px-5 max-w-6xl mx-auto flex items-center justify-between">
                     <div className="flex items-center">
                         <Image src="/sntlogo.jpg" alt="SNT Logo" height={60} width={64} className="w-10 h-14 object-cover sm:w-16 rounded-md" />
@@ -46,8 +46,8 @@ export default function Navbar() {
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold"><Link href="/Main">Home</Link></li>
                         <li onClick={() => setCourseModal(true)} className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Courses</li>
                         <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold"><Link href="/Tutorial">Tutorial</Link></li>
-                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">About us</li>
-                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold">Blog</li>
+                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold"><Link href="/AboutUs">About Us</Link></li>
+                        <li className="text-[#231F40] hover:text-blue-600 cursor-pointer duration-300 font-semibold"><Link href="/Blog">Blog</Link></li>
                     </ul>
                     <span className="p-2 hidden md:block lg:hidden rounded-md shadow-md"><RiMenuFill className="size-4 sm:size-6" /></span>
                 </div>
