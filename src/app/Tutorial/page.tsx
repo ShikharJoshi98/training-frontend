@@ -18,7 +18,7 @@ export default function Tutorial() {
         <h1 className='text-3xl text-center urbanist_bold md:text-4xl mt-3 w-fit mx-auto'>Latest <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Tutorials</span></h1>
         <div className="flex flex-row flex-wrap gap-4 px-16 mt-10 md:mt-14">
           {latestTutorials.map((tutorial, index) => (
-            <div key={index} className="p-2.5 shadow-md shadow-blue-300 hover:shadow-gray-100 bg-white cursor-pointer duration-300 w-[180px] h-[180px] min-h-48 flex flex-col items-center gap-3 rounded-3xl">
+            <div key={index} className="p-2.5 shadow-md mx-auto sm:mx-0 shadow-blue-300 hover:shadow-gray-100 bg-white cursor-pointer duration-300 w-[180px] h-[180px] min-h-48 flex flex-col items-center gap-3 rounded-3xl">
               <div className="p-4">
                 <Image src={tutorial.image} alt="Java logo" height={60} width={60} />
               </div>
@@ -31,7 +31,7 @@ export default function Tutorial() {
         <h1 className='text-3xl text-center urbanist_bold md:text-4xl mt-3 w-fit mx-auto'>Programming And <span style={{ fontFamily: 'Urbanist-bold' }} className='text-[#525fe1]'>Frameworks</span></h1>
         <div className="flex flex-row flex-wrap gap-4 px-16 mt-10 md:mt-14">
           {latestTutorials.map((tutorial, index) => (
-            <div key={index} className="p-2.5 shadow-md shadow-blue-300 hover:shadow-gray-100 bg-white cursor-pointer duration-300 w-[180px] h-[180px] min-h-48 flex flex-col items-center gap-3 rounded-3xl">
+            <div key={index} className="p-2.5 shadow-md mx-auto sm:mx-0 shadow-blue-300 hover:shadow-gray-100 bg-white cursor-pointer duration-300 w-[180px] h-[180px] min-h-48 flex flex-col items-center gap-3 rounded-3xl">
               <div className="p-4">
                 <Image src={tutorial.image} alt="Java logo" height={60} width={60} />
               </div>
