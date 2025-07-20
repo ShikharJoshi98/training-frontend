@@ -63,7 +63,7 @@ export default function Main() {
                     }
                 </div>
                 <div className='w-[90vw] max-w-[536px] h-72 mx-auto lg:mx-0 bg-white border rounded-2xl'>
-                    {/* right section */}
+                    Autoplay of testimonials
                 </div>
             </section>
             <h3 style={{ fontFamily: 'Urbanist-bold' }} className='text-[#7079df] w-fit mx-auto mt-10 lg:mt-16 md:text-xl'>WHO WE ARE</h3>
