@@ -1,0 +1,9 @@
+export const courses = [
+    { title: 'Programming and FrameWorks', products: [{ title: 'Java Full Stack Development', image: '/java.svg' }, { title: 'Mern Stack Development', image: '/mernstack.svg' }, { title: 'Python Full Stack Web Development', image: '/Python-Web.svg' }, { title: 'Mean Stack Development', image: '/meanstack.svg' }] },
+    { title: 'Software Testing', products: [{ title: 'Selenium Testing Complete Training', image: '/selenium.svg' }, { title: 'Mobile App Testing Using Appium', image: '/appium.svg' }, { title: 'Automation Testing Complete Training', image: '/AutomationTesting.svg' }] },
+    { title: 'Frontend Development', products: [{ title: 'Web Developer Complete Program', image: '/Web-Development.svg' }, { title: 'React Js Complete Course', image: '/reactsvg.svg' }, { title: 'Angular Complete Course', image: '/angularsvg.svg' }, { title: 'HCJ (HTML CSS and JS) Complete Course', image: '/HCJ.svg' }] },
+    { title: 'Database', products: [{ title: 'DBMS & RDBMS Complete Course', image: '/DBMS-RDBMS.svg' }, { title: 'Mongo DB Certification Training', image: '/mongosvg.svg' }, { title: 'Microsoft SQL Server Certification Training', image: '/microsoft-sql-server.svg' }, { title: 'MYSQL Certification Training', image: '/mysql.svg' }, { title: 'PostgreSQL Certification Training', image: '/postgresql.svg' }, { title: 'Oracle DB Complete Course', image: '/oracle-corporation-logo.svg' }] },
+    { title: 'Data Structure', products: [{ title: 'Data Structure and Algorithm Complete Course', image: '/Data-Structure-and-Algorithm.svg' }, { title: 'Data Structure Using Java', image: '/datastructureinjava.png' }, { title: 'Data Structure Using Python', image: '/datastructureinpython.png' }, { title: 'Data Structure Using C', image: '/datastructureinc.png' }] },
+];
+
+export const trainingProgram = ['Java Full Stack', 'Front End Web Development', 'MERN Stack Development','MEAN Stack Development'];

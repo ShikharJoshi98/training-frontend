@@ -10,7 +10,7 @@ export const footerLinks = [
 
 export default function Footer() {
     return (
-        <footer className="bg-[#231f3b] text-white px-8 pt-12 pb-4">
+        <footer className="bg-[#231f3b] relative bottom-0 text-white px-8 pt-12 pb-4">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div>
                     <h2 className="text-3xl font-serif font-stretch-150% font-bold mb-4">SNT</h2>
