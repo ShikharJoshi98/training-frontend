@@ -12,6 +12,7 @@ import Button from '../../components/Button';
 import SmallButton from '../../components/SmallButton';
 import { aboutInfoArray, blogArray, companyName, contactNo, courseArray, faqData, studentData, upcomingBatchArray, whyChooseUsArray } from "../../constant/landingPageData";
 import GetToKnowModal from '../../components/GetToKnowModal';
+import Link from 'next/link';
 
 export default function Main() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -51,7 +52,7 @@ export default function Main() {
                     {upcomingBatchArray.map((batch, index) => (
                         <div key={index} className='flex flex-col gap-3'>
                             <p className='flex items-center gap-2'><FaCalendarAlt className='text-[#525fe1]' />{batch.date}</p>
-                            <h3 className='text-xl font-semibold cursor-pointer hover:text-[#525fe1] duration-300'>{batch.title}</h3>
+                            <Link href={`/Courses/${(batch.title).replace(/\s+/g, "-")}#Upcoming-Batches`} className='text-xl font-semibold cursor-pointer hover:text-[#525fe1] duration-300'>{batch.title}</Link>
                             <div className='flex text-sm items-center flex-wrap gap-4'>
                                 <p className='flex items-center gap-2'><FaClock className='text-[#525fe1]' />{batch.duration}</p>
                                 <p className='flex items-center gap-2'><FaCalendar className='text-[#525fe1]' />{batch.days}</p>
@@ -78,9 +79,8 @@ export default function Main() {
                                 <span className="flex items-center mt-5 text-zinc-500 font-semibold gap-1 px-3"><FaBriefcase className="text-[#525fe1]" />{course.opportunites}</span>
                                 <div className="w-[80%] h-[0.5px] my-5 bg-gray-400 mx-auto"></div>
                                 <div className="flex items-center justify-between px-3 mt-auto">
-                                    <SmallButton text="Read More" />
-                                    <p className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 py-3 px-5 text-[#525fe1] flex items-center gap-3 font-semibold rounded-lg">Enroll Now <FaArrowRight /><span className="absolute left-5 bottom-2 h-[2px] w-0 bg-[#525fe1] transition-all duration-300 group-hover:w-[60%]"></span>
-                                    </p>
+                                    <Link href={`/Courses/${(course.title).replace(/\s+/g, "-")}`}><SmallButton text="Read More" /></Link>
+                                    <Link href={`/Courses/${(course.title).replace(/\s+/g, "-")}`} className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 py-3 px-5 text-[#525fe1] flex items-center gap-3 font-semibold rounded-lg">Enroll Now <FaArrowRight /><span className="absolute left-5 bottom-2 h-[2px] w-0 bg-[#525fe1] transition-all duration-300 group-hover:w-[60%]"></span></Link>
                                 </div>
                             </div>
                         ))}
@@ -114,13 +114,11 @@ export default function Main() {
                             <li key={index} className="relative pl-10 before:content-['✔'] before:absolute before:left-0 before:top-1 before:bg-[#525fe1] before:text-white before:rounded-full before:w-5 before:h-5 before:flex before:items-center before:justify-center before:text-xs">{detail}</li>))}
                     </ul>
                     <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center'>
-                        <Button text="Know More" />
+                        <Link href="/AboutUs"><Button text="Know More" /></Link>
                         <div className='flex items-center gap-4 mt-6 sm:mt-0 font-semibold'><span className='p-4 rounded-full bg-[#525fe1]/40'><FaPhoneAlt className='text-[#525fe1]' /></span><span className='text-lg hover:text-[#525fe1] duration-200 cursor-pointer'>{contactNo}</span></div>
                     </div>
                 </div>
             </section>
-
-
             <section className='bg-[#f3faff] px-5 py-15 mt-10 lg:mt-16'>
                 <h3 className='text-[#7079df] w-fit urbanist_bold mx-auto md:text-xl'>OUR SERVICES</h3>
                 <h1 style={{ fontFamily: 'Urbanist-bold' }} className='text-3xl text-center md:text-4xl mt-3 w-fit mx-auto'>Why Choose <span className='urbanist_bold text-[#525fe1]'>us?</span></h1>
@@ -186,9 +184,9 @@ export default function Main() {
                             <h3 className='urbanist_bold text-xl cursor-pointer hover:text-[#525fe1] duration-300'>{blog.title}</h3>
                             <div className='flex items-center mt-5 justify-between'>
                                 <p className='flex items-center gap-2 text-sm'><FaCalendar className='text-[#525fe1]' />{blog.date}</p>
-                                <p className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 text-[#525fe1] flex items-center gap-1 font-semibold rounded-lg">Read More <FaArrowRight />
+                                <Link href={`/BlogDetail/${(blog.title).replace(/\s+/g, "-")}`} className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 text-[#525fe1] flex items-center gap-1 font-semibold rounded-lg">Read More <FaArrowRight />
                                     <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#525fe1] transition-all duration-300 group-hover:w-[80%]"></span>
-                                </p>
+                                </Link>
                             </div>
                         </div>
                     ))}

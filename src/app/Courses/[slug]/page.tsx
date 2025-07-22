@@ -1,152 +1,16 @@
 'use client'
-import Button from "@/components/Button";
 import Input from "@/components/Input";
 import SelfPacedLearning from "@/components/SelfPacedLearning";
 import SmallButton from "@/components/SmallButton";
+import { modules } from "@/constant/courses";
 import { companyName } from "@/constant/landingPageData";
-import { useParams } from "next/navigation"
-import { useRef, useState } from "react";
+import { useParams, usePathname } from "next/navigation"
+import { useEffect, useRef, useState } from "react";
 import { BsGraphUpArrow } from "react-icons/bs";
-import { FaArrowRight, FaCalendarAlt, FaChevronDown, FaChevronRight, FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaChevronDown, FaChevronRight, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import { GiStairsGoal } from "react-icons/gi";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { TbCertificate } from "react-icons/tb";
-
-const modules = [
-    {
-        title: "Core Java",
-        addon: "Hands-on with Java basics and OOP",
-        topics: [
-            "Java Syntax and Data Types",
-            "Control Statements and Loops",
-            "Object-Oriented Programming",
-            "Exception Handling",
-            "Collections Framework"
-        ],
-        duration: "1 month"
-    },
-    {
-        title: "Java 8 & New Features",
-        addon: "Stream API & Lambda Expressions",
-        topics: [
-            "Lambda Expressions",
-            "Streams API",
-            "Functional Interfaces",
-            "Method References",
-            "Date and Time API"
-        ],
-        duration: "2 weeks"
-    },
-    {
-        title: "Advance Java",
-        addon: "Network Programming & JDBC",
-        topics: [
-            "JDBC and Database Connectivity",
-            "Servlets and JSP",
-            "Multi-threading",
-            "Socket Programming",
-            "JavaMail API"
-        ],
-        duration: "1 month"
-    },
-    {
-        title: "Hibernate",
-        addon: "ORM with Real Database Projects",
-        topics: [
-            "Introduction to ORM",
-            "Hibernate Architecture",
-            "Annotations & XML Configurations",
-            "Hibernate CRUD Operations",
-            "One-to-One & One-to-Many Mappings"
-        ],
-        duration: "2 weeks"
-    },
-    {
-        title: "Spring",
-        addon: "Spring Core with Dependency Injection",
-        topics: [
-            "Spring Overview",
-            "Dependency Injection",
-            "Spring Beans and Lifecycle",
-            "Spring Annotations",
-            "Integration with JDBC & Hibernate"
-        ],
-        duration: "2 weeks"
-    },
-    {
-        title: "Spring Boot",
-        addon: "Build REST APIs Quickly",
-        topics: [
-            "Spring Boot Basics",
-            "Creating RESTful Services",
-            "Auto Configuration",
-            "Spring Boot Starters",
-            "Actuator and Monitoring"
-        ],
-        duration: "2 weeks"
-    },
-    {
-        title: "Spring Data JPA",
-        addon: "Simplified Data Persistence",
-        topics: [
-            "Introduction to JPA",
-            "Spring Data Repositories",
-            "Custom Queries",
-            "Pagination and Sorting",
-            "Entity Relationships"
-        ],
-        duration: "1 week"
-    },
-    {
-        title: "Spring MVC & Spring Boot Testing",
-        addon: "JUnit & Mockito for Real Testing",
-        topics: [
-            "Spring MVC Architecture",
-            "Request Mapping and Controllers",
-            "Unit Testing with JUnit",
-            "Mocking with Mockito",
-            "Integration Testing"
-        ],
-        duration: "2 weeks"
-    },
-    {
-        title: "Microservices",
-        addon: "Docker-based Deployments",
-        topics: [
-            "Microservices Overview",
-            "Spring Cloud & Eureka",
-            "API Gateway (Zuul)",
-            "Service Discovery",
-            "Circuit Breakers (Hystrix)"
-        ],
-        duration: "3 weeks"
-    },
-    {
-        title: "Apache Kafka",
-        addon: "Messaging for Scalable Systems",
-        topics: [
-            "Kafka Architecture",
-            "Producers & Consumers",
-            "Kafka Topics & Partitions",
-            "Spring Boot Kafka Integration",
-            "Stream Processing Basics"
-        ],
-        duration: "1 week"
-    },
-    {
-        title: "CI/CD Pipeline",
-        addon: "DevOps Essentials with Jenkins & GitHub",
-        topics: [
-            "Version Control with Git & GitHub",
-            "Jenkins Pipeline Setup",
-            "Docker Basics",
-            "CI/CD Workflow",
-            "Deployment to Cloud (Heroku/AWS)"
-        ],
-        duration: "1 week"
-    }
-];
-
 
 const Course = () => {
     const params = useParams();
@@ -185,6 +49,31 @@ const Course = () => {
                     <button className='bg-[#525fe1] urbanist_bold mt-5 text-lg py-3 px-8 cursor-pointer hover:bg-[#4753dc] duration-300 rounded-md text-white w-fit mx-auto'>Enquire</button>
                 </form>
             </div>
+            <h1 id="Upcoming-Batches" className="text-3xl md:text-5xl text-center mt-24 urbanist_bold text-gray-900">Upcoming <span className="text-[#525fe1] urbanist_bold">Batches</span></h1>
+            <div className="flex flex-wrap flex-col md:flex-row mx-auto mt-16 gap-4 w-[90vw] max-w-6xl items-center bg-white p-4 rounded-xl shadow-md">
+                <div className="relative w-24 text-center rounded-lg shadow-md overflow-hidden bg-[#525fe1] text-white">
+                    <div className="text-2xl font-bold p-3">19</div>
+                    <div className="bg-white text-[#666] text-sm font-medium py-2">July 2025</div>
+                </div>
+                <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-center md:text-start text-[#1E1A42] mb-2">Full Stack Java Development</h3>
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+                        <div className="flex items-center gap-1">
+                            <FaClock className="text-[#525fe1]" />
+                            11:00 AM to 02:00 PM
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <FaMapMarkerAlt className="text-[#525fe1]" />
+                            Offline/Online
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <FaCalendarAlt className="text-[#525fe1]" />
+                            weekend
+                        </div>
+                    </div>
+                </div>
+                <SmallButton text="Enroll Now" />
+            </div>
             <div className="flex mt-20 flex-col items-center gap-10 text-[#4a4a4a]">
                 <h1 className="text-3xl md:text-5xl urbanist_bold text-gray-900">Course <span className="text-[#525fe1] urbanist_bold">Overview</span></h1>
                 <p className="text-base md:text-lg leading-relaxed font-semibold w-[90vw] max-w-6xl">
@@ -213,37 +102,12 @@ const Course = () => {
                     <p className="text-center">Assured Placement & Career Growth</p>
                 </div>
             </div>
-            <h1 className="text-3xl md:text-5xl text-center mt-24 urbanist_bold text-gray-900">Upcoming <span className="text-[#525fe1] urbanist_bold">Batches</span></h1>
-            <div className="flex flex-wrap flex-col md:flex-row mx-auto mt-16 gap-4 w-[90vw] max-w-6xl items-center bg-white p-4 rounded-xl shadow-md">
-                <div className="relative w-24 text-center rounded-lg shadow-md overflow-hidden bg-[#525fe1] text-white">
-                    <div className="text-2xl font-bold p-3">19</div>
-                    <div className="bg-white text-[#666] text-sm font-medium py-2">Jul 2025</div>
-                </div>
-                <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-center md:text-start text-[#1E1A42] mb-2">Full Stack Java Development</h3>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-                        <div className="flex items-center gap-1">
-                            <FaClock className="text-[#525fe1]" />
-                            11:00 AM to 02:00 PM
-                        </div>
-                        <div className="flex items-center gap-1">
-                            <FaMapMarkerAlt className="text-[#525fe1]" />
-                            Offline/Online
-                        </div>
-                        <div className="flex items-center gap-1">
-                            <FaCalendarAlt className="text-[#525fe1]" />
-                            weekend
-                        </div>
-                    </div>
-                </div>
-                <SmallButton text="Enroll Now" />
-            </div>
             <h1 className="text-3xl md:text-5xl text-center mt-24 urbanist_bold text-gray-900">Course <span className="text-[#525fe1] urbanist_bold">Curriculum</span></h1>
             <div ref={sectionRef} className="bg-white mb-20 shadow-lg w-[95vw] max-w-6xl mx-auto mt-10 md:mt-14 text-white p-6 rounded-lg space-y-6">
                 <div className="hidden md:grid grid-cols-2 gap-6">
                     <div className="flex flex-col gap-4">
                         {modules.map((module, index) => (
-                            <div key={index} onClick={() => { setSelectedIndex(index); scrollToSection() }} className={`cursor-pointer rounded-md p-4 border ${index === selectedIndex ? "bg-gray-200 border-gray-600" : "border-transparent hover:bg-gray-100"}`}>
+                            <div key={index} onClick={() => { setSelectedIndex(index); scrollToSection() }} className={`cursor-pointer shadow-md rounded-md p-4 border ${index === selectedIndex ? "bg-gray-200 border-gray-600" : "border-transparent hover:bg-gray-100"}`}>
                                 <p className="text-[#525fe1] font-semibold">{(index + 1) < 10 ? `0${index + 1}` : `${index + 1}`}</p>
                                 <div className="flex items-center justify-between">
                                     <div>
@@ -255,14 +119,14 @@ const Course = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="bg-gray-100 rounded-md p-6 overflow-auto">
+                    <div className="bg-gray-100 shadow-md rounded-md p-6 overflow-auto">
                         <div className="flex justify-between items-center mb-4">
-                            <h3 className="font-semibold text-zinc-800 ">Topic</h3>
-                            <span className="text-sm  text-zinc-800 ">
+                            <h3 className="font-semibold text-lg text-zinc-800 ">Topic</h3>
+                            <span className="text-zinc-800 ">
                                 Duration: {modules[selectedIndex].duration || "—"}
                             </span>
                         </div>
-                        <ul className="list-disc pl-5 space-y-2  text-zinc-600  font-semibold text-sm md:text-base">
+                        <ul className="list-disc pl-5 space-y-2 text-zinc-600 font-semibold text-sm md:text-base">
                             {modules[selectedIndex].topics?.length ? (
                                 modules[selectedIndex].topics.map((topic, i) => (
                                     <li key={i}>{topic}</li>

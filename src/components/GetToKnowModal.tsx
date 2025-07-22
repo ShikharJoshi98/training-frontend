@@ -21,9 +21,9 @@ const GetToKnowModal = ({ onClose }: ModalProps) => {
 
     return (
         <div className="bg-black/50 z-60 fixed inset-0 flex items-center justify-center p-2">
-            <div className="bg-white overflow-x-hidden max-h-[90vh] max-w-[35vw] overflow-y-auto flex flex-col w-full rounded-xl p-6 md:p-10 shadow-lg">
+            <div className="bg-white overflow-x-hidden max-h-[90vh] max-w-[90vw] md:max-w-[50vw] lg:max-w-[35vw] overflow-y-auto flex flex-col w-full rounded-xl p-6 md:p-10 shadow-lg">
                 <button onClick={onClose} className="place-self-end cursor-pointer transition-all duration-300 hover:text-white hover:bg-red-500 rounded-md p-1"><RxCross2 size={24} /></button>
-                <h1 className='text-zinc-800 text-4xl urbanist_bold text-center'>Get in Touch</h1>
+                <h1 className='underline underline-offset-8 decoration-indigo-500 text-4xl urbanist_bold text-center'>Get in Touch</h1>
                 <form onSubmit={handleSubmit} className='flex flex-col gap-5 mt-10'>
                     <Input type='text' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} value={name} placeholder='Name' />
                     <Input type='number' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setContact(e.target.value)} value={contact} placeholder='Mobile Number' />
