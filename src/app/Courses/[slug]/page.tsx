@@ -1,11 +1,13 @@
 'use client'
+import DownloadBrochure from "@/components/DownloadBrochure";
+import EnrollNowModal from "@/components/EnrollNowModal";
 import Input from "@/components/Input";
 import SelfPacedLearning from "@/components/SelfPacedLearning";
 import SmallButton from "@/components/SmallButton";
 import { modules } from "@/constant/courses";
 import { companyName } from "@/constant/landingPageData";
-import { useParams, usePathname } from "next/navigation"
-import { useEffect, useRef, useState } from "react";
+import { useParams } from "next/navigation"
+import { useRef, useState } from "react";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { FaCalendarAlt, FaChevronDown, FaChevronRight, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import { GiStairsGoal } from "react-icons/gi";
@@ -17,10 +19,12 @@ const Course = () => {
     const heading = typeof params.slug === "string" ? params.slug : "";
     const [name, setName] = useState('');
     const [contact, setContact] = useState('');
-    const [selectedOption, setSelectedOption] = useState<string>("");
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [isEnrollModalOpen, setEnrollModalOpen] = useState<boolean>(false);
+    const [isDownloadBrochureModalOpen, setDownloadBrochureModalOpen] = useState<boolean>(false);
     const sectionRef = useRef<HTMLDivElement>(null);
+    const enrollSectionRef = useRef<HTMLDivElement>(null);
 
     const scrollToSection = () => {
         sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -35,8 +39,8 @@ const Course = () => {
                     <h1 className="text-4xl md:text-5xl max-w-3xl text-zinc-700 text-center lg:text-start urbanist_bold px-5 lg:px-0 py-10">{heading.replace(/-/g, " ")}</h1>
                     <div className="py-1 px-3 md:px-6 rounded-4xl font-semibold flex items-center gap-2 border text-sm md:text-lg w-fit mx-auto lg:mx-0"><FaCalendarAlt className="text-[#525fe1]" /><p>Next Batch at 19 July 2025</p></div>
                     <div className="flex items-center justify-center lg:justify-start gap-3 mt-10">
-                        <button className="bg-white cursor-pointer shadow-md text-sm sm:text-base md:text-lg urbanist_bold rounded-md py-2.5 px-4">Download Brochure</button>
-                        <button className="bg-[#525fe1] cursor-pointer text-white urbanist_bold shadow-md text-sm sm:text-base md:text-lg rounded-md py-2.5 px-4">Enroll Now</button>
+                        <button onClick={() => setDownloadBrochureModalOpen(true)} className="bg-white cursor-pointer shadow-md text-sm sm:text-base md:text-lg urbanist_bold rounded-md py-2.5 px-4">Download Brochure</button>
+                        <button onClick={() => enrollSectionRef.current?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#525fe1] cursor-pointer text-white urbanist_bold shadow-md text-sm sm:text-base md:text-lg rounded-md py-2.5 px-4">Enroll Now</button>
                     </div>
                 </div>
                 <form className="w-[90vw] max-w-[450px] md:mx-0 rounded-xl p-6 mt-15 lg:mt-0 mx-auto bg-white flex flex-col gap-5">
@@ -49,7 +53,7 @@ const Course = () => {
                     <button className='bg-[#525fe1] urbanist_bold mt-5 text-lg py-3 px-8 cursor-pointer hover:bg-[#4753dc] duration-300 rounded-md text-white w-fit mx-auto'>Enquire</button>
                 </form>
             </div>
-            <h1 id="Upcoming-Batches" className="text-3xl md:text-5xl text-center mt-24 urbanist_bold text-gray-900">Upcoming <span className="text-[#525fe1] urbanist_bold">Batches</span></h1>
+            <h1 id="Upcoming-Batches" ref={enrollSectionRef} className="text-3xl md:text-5xl text-center mt-24 urbanist_bold text-gray-900">Upcoming <span className="text-[#525fe1] urbanist_bold">Batches</span></h1>
             <div className="flex flex-wrap flex-col md:flex-row mx-auto mt-16 gap-4 w-[90vw] max-w-6xl items-center bg-white p-4 rounded-xl shadow-md">
                 <div className="relative w-24 text-center rounded-lg shadow-md overflow-hidden bg-[#525fe1] text-white">
                     <div className="text-2xl font-bold p-3">19</div>
@@ -72,7 +76,7 @@ const Course = () => {
                         </div>
                     </div>
                 </div>
-                <SmallButton text="Enroll Now" />
+                <SmallButton onClick={() => setEnrollModalOpen(true)} text="Enroll Now" />
             </div>
             <div className="flex mt-20 flex-col items-center gap-10 text-[#4a4a4a]">
                 <h1 className="text-3xl md:text-5xl urbanist_bold text-gray-900">Course <span className="text-[#525fe1] urbanist_bold">Overview</span></h1>
@@ -160,7 +164,9 @@ const Course = () => {
                 </div>
             </div>
             <SelfPacedLearning />
-        </section>
+            {isDownloadBrochureModalOpen && <DownloadBrochure onClose={() => setDownloadBrochureModalOpen(false)} />}
+            {isEnrollModalOpen && <EnrollNowModal onClose={() => setEnrollModalOpen(false)} />}
+        </section >
     )
 }
 

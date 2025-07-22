@@ -1,7 +1,7 @@
 import SelfPacedLearning from "@/components/SelfPacedLearning";
+import { blogArray } from "@/constant/landingPageData";
+import Link from "next/link";
 import { FaArrowRight, FaCalendar } from "react-icons/fa";
-
-const blogArray = ['Roadmap To Prepare For Campus Placement', '6 Amazing Java Applications You Should Know About', 'Python Machine Learning Libraries', 'Should AI take over Repetitive tasks?', 'Python Algorithms for Plastic Waste Management', 'Java Machine Learning Libraries']
 
 export default function Blog() {
     return (
@@ -15,13 +15,13 @@ export default function Blog() {
                 <div className='mt-12 flex flex-col md:flex-row max-w-7xl mx-auto flex-wrap md:justify-center md:items-center md:px-10 gap-6'>
                     {blogArray.map((blog, index) => (
                         <div key={index} className='bg-white w-[90vw] max-w-91 p-4 flex flex-col justify-between md:h-48 mx-auto md:mx-0 rounded-lg shadow-md shadow-gray-500'>
-                            <h3 className='urbanist_bold text-xl cursor-pointer hover:text-[#525fe1] duration-300'>{blog}</h3>
+                            <h3 className='urbanist_bold text-xl cursor-pointer hover:text-[#525fe1] duration-300'>{blog.title}</h3>
                             <div className='flex items-center mt-5 justify-between'>
-                                <p className='flex items-center gap-2 text-sm'><FaCalendar className='text-[#525fe1]' />01 August 2025</p>
-                                <p className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 text-[#525fe1] flex items-center gap-1 font-semibold rounded-lg">
+                                <p className='flex items-center gap-2 text-sm'><FaCalendar className='text-[#525fe1]' />{blog.date}</p>
+                                <Link href={`/BlogDetail/${(blog.title).replace(/\s+/g, "-")}`} className="relative group w-fit text-sm sm:text-base cursor-pointer duration-300 text-[#525fe1] flex items-center gap-1 font-semibold rounded-lg">
                                     Read More <FaArrowRight />
                                     <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#525fe1] transition-all duration-300 group-hover:w-[80%]"></span>
-                                </p>
+                                </Link>
                             </div>
                         </div>
                     ))}
